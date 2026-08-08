@@ -1,17 +1,20 @@
-# Yahtzee in Python
+<div align="center">
 
-<p align="center">
-  <strong>A complete terminal implementation of the classic dice game.</strong><br>
-  Built with the Python standard library, modular game logic, and automated scoring tests.
-</p>
+# Yahtzee — Terminal Game
 
-<p align="center">
-  <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white"></a>
-  <a href="https://github.com/tiagoslantunes/Yahtzee/actions/workflows/quality.yml"><img alt="Quality checks" src="https://github.com/tiagoslantunes/Yahtzee/actions/workflows/quality.yml/badge.svg"></a>
-  <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-standard%20library-4C1">
-</p>
+**A complete terminal implementation of the classic dice game.**
+Built with the Python standard library &middot; modular game logic &middot; automated scoring tests.
 
-Developed for the Programming for Data Science course, this project separates the reusable scoring engine from the terminal interface. It demonstrates input validation, state management, deterministic scoring rules, and testable functional design.
+[![Quality checks](https://github.com/tiagoslantunes/yahtzee-terminal-game/actions/workflows/quality.yml/badge.svg)](https://github.com/tiagoslantunes/yahtzee-terminal-game/actions/workflows/quality.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-standard_library-4C1)](requirements.txt)
+[![License: MIT](https://img.shields.io/badge/license-MIT-3DA639)](LICENSE)
+
+</div>
+
+Developed for the Programming for Data Science course, this project separates the reusable
+scoring engine from the terminal interface. It demonstrates input validation, state
+management, deterministic scoring rules, and testable functional design.
 
 ## Highlights
 
@@ -32,12 +35,13 @@ Developed for the Programming for Data Science course, this project separates th
 ## Quick start
 
 ```bash
-git clone https://github.com/tiagoslantunes/Yahtzee.git
-cd Yahtzee
+git clone https://github.com/tiagoslantunes/yahtzee-terminal-game.git
+cd yahtzee-terminal-game
 python main.py
 ```
 
-Enter the dice you want to keep as digits. For example, `336` keeps two threes and one six. Press Enter to keep none.
+Enter the dice you want to keep as digits. For example, `336` keeps two threes and one six.
+Press Enter to keep none.
 
 ## Scoring model
 
@@ -52,14 +56,6 @@ Enter the dice you want to keep as digits. For example, `336` keeps two threes a
 
 The upper section receives a 35-point bonus when its subtotal reaches 63.
 
-## Tests
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-The test suite covers scorecard initialization, dice bounds, straight detection, category scoring, the upper bonus, and reroll invariants.
-
 ## Design notes
 
 - A `Counter` represents dice multiplicities and makes combination checks explicit.
@@ -67,10 +63,23 @@ The test suite covers scorecard initialization, dice bounds, straight detection,
 - Hands are sorted after rolls for predictable display and simpler debugging.
 - `None` marks unused scorecard categories without conflating them with a score of zero.
 
+## Quality checks
+
+Every push runs [`quality.yml`](.github/workflows/quality.yml) on GitHub Actions: a syntax
+check over the whole package plus the full test suite. To run the same checks locally:
+
+```bash
+python -m compileall -q main.py yahtzee.py tests
+python -m unittest discover -s tests -v
+```
+
+The test suite covers scorecard initialization, dice bounds, straight detection, category
+scoring, the upper bonus, and reroll invariants.
+
 ## Author
 
 Tiago Antunes
 
 ## License
 
-The original code and documentation are shared for portfolio viewing under an all-rights-reserved notice. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE).
