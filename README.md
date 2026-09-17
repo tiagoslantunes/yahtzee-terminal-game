@@ -2,7 +2,7 @@
 
 # Yahtzee — Terminal Game
 
-**A complete terminal implementation of the classic dice game.**
+**A 13-round terminal dice game with a reusable Yahtzee scoring engine.**
 Built with the Python standard library &middot; modular game logic &middot; automated scoring tests.
 
 [![Quality checks](https://github.com/tiagoslantunes/yahtzee-terminal-game/actions/workflows/quality.yml/badge.svg)](https://github.com/tiagoslantunes/yahtzee-terminal-game/actions/workflows/quality.yml)
@@ -15,6 +15,12 @@ Built with the Python standard library &middot; modular game logic &middot; auto
 Developed for the Programming for Data Science course, this project separates the reusable
 scoring engine from the terminal interface. It demonstrates input validation, state
 management, deterministic scoring rules, and testable functional design.
+
+## Start here
+
+Run `python main.py` to play, inspect [yahtzee.py](yahtzee.py) for the scoring logic,
+or run `python -m unittest discover -s tests -v` to check the implemented rules.
+No dependency installation or external data is required.
 
 ## Highlights
 
@@ -55,6 +61,12 @@ Press Enter to keep none.
 | Chance | Sum of all dice |
 
 The upper section receives a 35-point bonus when its subtotal reaches 63.
+
+## Rule variants and limitations
+
+This course implementation uses the scoring table above. It does not implement
+extra-Yahtzee bonuses or Joker rules. Dice kept after a roll remain locked on later
+rolls in that round. There is no saved-game persistence or multiplayer mode.
 
 ## Design notes
 
